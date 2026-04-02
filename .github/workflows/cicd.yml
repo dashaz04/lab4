@@ -1,12 +1,15 @@
-name: CI/CD on github
-on:
- push:
-  branches:
-   - main
+name: test
+on: [push, pull_request]
 jobs:
  build:
-  name: Build step
   runs-on: [ubuntu-latest]
   steps:
-    - name: run example
-      run: echo "Build step"
+    - uses: actions/checkout@v4
+    - name: Install cmake
+      run: sudo apt install -y cmake build-essential
+    - name: Build
+      run:
+        mkdir build
+        cd build
+        cmake ..
+        make
