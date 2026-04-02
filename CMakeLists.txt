@@ -10,17 +10,4 @@ add_subdirectory(solver_lib)
 add_subdirectory(hello_world_application)
 add_subdirectory(solver_application)
 
-install(TARGETS formatter formatter_ex solver_lib
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin
-)
 
-install(TARGETS hello_world solver
-    RUNTIME DESTINATION bin
-)
-
-install(DIRECTORY formatter_lib/ formatter_ex/ solver_lib/
-    DESTINATION include
-    FILES_MATCHING PATTERN "*.h"
-)
