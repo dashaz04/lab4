@@ -6,7 +6,7 @@ on:
 jobs:
  build:
   name: Build step
-  runs-on: [ubuntu-latest, windows-latest]
+  runs-on: [ubuntu-latest]
   steps:
     - name: run example
       run: echo "Build step"
