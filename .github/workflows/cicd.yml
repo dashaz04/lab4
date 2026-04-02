@@ -8,7 +8,8 @@ jobs:
     - name: Install cmake
       run: sudo apt install -y cmake build-essential
     - name: Build
-      run:
+      run: |
+        rm -rf build
         mkdir build
         cd build
         cmake ..
