@@ -2,11 +2,11 @@ name: CI/CD on github
 on:
  push:
   branches:
-   -main
+   - main
 jobs:
  build:
   name: Build step
   runs-on: [ubuntu-latest, windows-latest]
   steps:
-  -name: run example
-   run: echo "Build step"
+    - name: run example
+      run: echo "Build step"
