@@ -10,7 +10,7 @@ jobs:
         compiler: [g++, clang++]
         exclude:
           - os: windows-latest
-            compiler: g++  # На Windows нет g++
+            compiler: g++
 
     runs-on: ${{ matrix.os }}
     steps:
