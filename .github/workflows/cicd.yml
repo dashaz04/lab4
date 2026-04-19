@@ -20,5 +20,4 @@ jobs:
           cmake -S . -B build -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
           cmake --build build --config Release
         shell: bash
-          make
        
