@@ -15,9 +15,13 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-
+      
+      - name: Install Clang on Windows
+        if: runner.os == 'Windows'
+        run: choco install cmake
+        
       - name: Build
         run: |
-          cmake -S . -B build -DCMAKE_CXX_COMPILER=${{ matrix.compiler }}
-          cmake --build build --config Release
+          cmake -S . -B build 
+          cmake --build build 
         shell: bash
