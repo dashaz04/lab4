@@ -1,16 +1,25 @@
 name: test
 on: [push, pull_request]
+
 jobs:
- build:
-  runs-on: [ubuntu-latest, windows-latest]
-  steps:
-    - uses: actions/checkout@v4
-    - name: Install cmake
-      run: sudo apt install -y cmake build-essential
-    - name: Build
-      run: |
-        rm -rf build
-        mkdir build
-        cd build
-        cmake ..
-        make
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        compiler: [g++, clang]
+        exclude:
+          - os: windows-latest
+            compiler: g++
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cmake
+        run: |
+          rm -rf build
+          mkdir build
+          cd build
+          cmake ..
+          make
+       
