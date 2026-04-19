@@ -15,6 +15,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Install compilers on Ubuntu
+        if: runner.os == 'Linux'
+        run: sudo apt update && sudo apt install -y g++ clang cmake build-essential
+
+      - name: Install clang on Windows
+        if: runner.os == 'Windows'
+        run: choco install llvm -y
+        
       - name: Cmake
         run: |
           rm -rf build
