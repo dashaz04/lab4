@@ -15,10 +15,6 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
-      
-      - name: Install Clang on Windows
-        if: runner.os == 'Windows'
-        run: choco install llvm -y
 
       - name: Build
         run: |
